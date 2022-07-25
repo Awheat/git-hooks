@@ -28,9 +28,15 @@ const init = async () => {
 
     // console.log('---bb---', b);
 
-    await git.checkout(['-b', 'dev1.1']);
+    try {
+        await git.checkout(['-b', 'dev1.1']);
+    } catch (err) {
+        console.log('--err--', err)
+    }
 
+    const mergeRes = await git.mergeFromTo('origin/dev1.0', 'dev1.1');
 
+    console.log('--111--', mergeRes);
 
 }
 
