@@ -19,6 +19,10 @@ const init = async () => {
 
     console.log('---aa---', a);
 
+    const b = await git.push('origin', 'dev1.0');
+
+    console.log('---bb---', b);
+
 }
 
 init();
