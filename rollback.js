@@ -1,3 +1,6 @@
+// 资料
+// https://blog.csdn.net/qq_39657585/article/details/102877239
+// http://www.javascriptcn.com/post/51796
 const simpleGit = require('simple-git');
 
 const git = simpleGit('./');
@@ -9,19 +12,25 @@ const init = async () => {
     //const status = await git.status();
     // console.log('---status---', status);
 
-    await git.status();
+    //----下面是通过的----
 
-    await git.add('./*');
+    // await git.status();
 
-    await git.commit('测试111');
+    // await git.add('./*');
 
-    const a = await git.pull('origin', 'dev1.0');
+    // await git.commit('测试111');
 
-    console.log('---aa---', a);
+    // const a = await git.pull('origin', 'dev1.0');
 
-    const b = await git.push('origin', 'dev1.0');
+    // console.log('---aa---', a);
 
-    console.log('---bb---', b);
+    // const b = await git.push('origin', 'dev1.0');
+
+    // console.log('---bb---', b);
+
+    await git.checkout(['-b', 'dev1.1']);
+
+
 
 }
 
