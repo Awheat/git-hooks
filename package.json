@@ -1,0 +1,23 @@
+{
+  "name": "git-hooks",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Awheat/git-hooks.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Awheat/git-hooks/issues"
+  },
+  "homepage": "https://github.com/Awheat/git-hooks#readme",
+  "dependencies": {
+    "simple-git": "^3.10.0"
+  }
+}
