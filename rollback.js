@@ -15,6 +15,9 @@ const init = async () => {
 
     await git.commit('测试111');
 
+    const a = await git.pull('origin', 'dev1.0');
+
+    console.log('---aa---', a);
 
 }
 
