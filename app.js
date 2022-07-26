@@ -103,7 +103,7 @@ async function actionStepOne() {
         console.log('---b---', b);
         const c = await git.pull('origin', 'dev1.1');
         console.log('---c---', c);
-        const last = await git.push('origin', curr);
+        const last = await git.push('origin', 'dev1.1');
 
         console.log('---last---', last);
     }
