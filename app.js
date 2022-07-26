@@ -94,7 +94,7 @@ async function actionStepOne() {
     const status = await getStatus();
 
     const { files } = status;
-    const curr = await git.raw(['branch']);
+    const curr = await git.raw(['rev-parse', '--abbrev-ref', 'HEAD']);
     console.log('--aaa---', status, curr);
     if (files.length) {
         const a = await git.add('./*');
@@ -116,7 +116,7 @@ async function actionStepOne() {
 */
 async function run() {
     try {
-        //PREV_BRANCH_NAME = await getPrevBranch();
+        //PREV_BRANCH_NAME = await git.raw(['rev-parse', '--abbrev-ref', 'HEAD']);
         //console.log('res:', PREV_BRANCH_NAME);
 
         actionStepOne();
