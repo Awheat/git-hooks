@@ -25,10 +25,10 @@ const actionInit = async () => {
 
         await git.push('origin', current);
         console.log('---log1---')
-        await git.checkout(['-b', 'rollback_dev', 'master']);
+        await git.checkout(['-b', 'rollback_dev']);
     } else {
         console.log('---log2---')
-        await git.checkout(['-b', 'rollback_dev', 'master']);
+        await git.checkout(['-b', 'rollback_dev']);
     }
 }
 
