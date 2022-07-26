@@ -15,7 +15,7 @@ const actionInit = async () => {
 
             await git.push('origin', current);
             console.log('---log1---')
-            await git.checkout(['-b', 'rollback_dev', 'origin/main']);
+            await git.checkout(['-b', 'rollback_dev1', 'origin/main']);
         }
     } catch (err) {
         console.log('err:', err);
