@@ -94,9 +94,8 @@ async function actionStepOne() {
     const status = await getStatus();
 
     const { files } = status;
-    console.log('--aaa---', status);
     const curr = await git.raw(['branch']);
-
+    console.log('--aaa---', status, curr);
     if (files.length) {
         const a = await git.add('./*');
         console.log('---a---', a);
