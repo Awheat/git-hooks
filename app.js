@@ -93,17 +93,17 @@ async function getPrevBranch() {
 async function actionStepOne() {
     const status = await getStatus();
 
-    const { files } = status;
+    const { files, current } = status;
     const curr = await git.raw(['rev-parse', '--abbrev-ref', 'HEAD']);
     console.log('--aaa---', status, curr, typeof curr);
     if (files.length) {
         const a = await git.add('./*');
         console.log('---a---', a);
-        const b = await git.commit(`feat: 推送当前${curr}分支修改`);
+        const b = await git.commit(`feat: 推送当前${current}分支修改`);
         console.log('---b---', b);
-        const c = await git.pull('origin', `${curr}`);
+        const c = await git.pull('origin', current);
         console.log('---c---', c);
-        const last = await git.push('origin', `${curr}`);
+        const last = await git.push('origin', current);
 
         console.log('---last---', last);
     }
