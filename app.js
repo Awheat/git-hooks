@@ -95,7 +95,7 @@ async function actionStepOne() {
 
     const { files } = status;
     const curr = await git.raw(['rev-parse', '--abbrev-ref', 'HEAD']);
-    console.log('--aaa---', status, curr);
+    console.log('--aaa---', curr, typeof curr);
     if (files.length) {
         const a = await git.add('./*');
         console.log('---a---', a);
