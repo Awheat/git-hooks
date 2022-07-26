@@ -94,7 +94,7 @@ async function actionStepOne() {
     const status = await getStatus();
 
     const { files } = status;
-
+    console.log('--aaa---', status);
     const curr = await git.raw(['branch']);
 
     if (files.length) {
@@ -117,8 +117,8 @@ async function actionStepOne() {
 */
 async function run() {
     try {
-        PREV_BRANCH_NAME = await getPrevBranch();
-        console.log('res:', PREV_BRANCH_NAME);
+        //PREV_BRANCH_NAME = await getPrevBranch();
+        //console.log('res:', PREV_BRANCH_NAME);
 
         actionStepOne();
     } catch (err) {
