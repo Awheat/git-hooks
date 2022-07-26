@@ -101,7 +101,7 @@ async function actionStepOne() {
         console.log('---a---', a);
         const b = await git.commit(`feat: 推送当前${curr}分支修改`);
         console.log('---b---', b);
-        const c = await git.pull('origin', curr);
+        const c = await git.pull('origin', 'dev1.1');
         console.log('---c---', c);
         const last = await git.push('origin', curr);
 
@@ -120,6 +120,8 @@ async function run() {
         //console.log('res:', PREV_BRANCH_NAME);
 
         actionStepOne();
+
+        //await git.pull('origin', 'dev1.1');
     } catch (err) {
         console.log('函数run报错:', err);
     }
