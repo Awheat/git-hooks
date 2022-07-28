@@ -8,6 +8,8 @@ const simpleGit = require('simple-git');
 
 const git = simpleGit('./');
 
+const ROLLBACK_NAME = 'origin/rollback_dev';
+
 
 /** @desc 获取远程是否存在某个分支 */
 const isExistBranch = async (bname) => {
@@ -25,30 +27,30 @@ const isExistBranch = async (bname) => {
 const actionCommitFlow = async () => {
     try {
         const status = await git.status();
+
         const { current } = status;
-        const isExist = await isExistBranch(`origin/${current}`);
 
         await git.add('./*');
 
-        await git.commit('feat: 自动提交流程');
+        await git.commit(`feat: 分支[${current}]自动提交流程`);
 
         await git.pull();
 
-        if (isExist) {
-            console.log('---1---')
-            await git.push('origin', current);
-        } else {
-            console.log('---2---')
-            await git.push('origin', current);
-        }
+        await git.push('origin', current);
+
+        console.log('===> commit_flow_ending～')
     } catch (err) {
         console.log('提交流程报错:', err);
     }
 }
 
 const actionInit = async () => {
+    // 提交流程
     await actionCommitFlow();
-    // const isExist = await isExistBranch('origin/rollback_dev');
+
+    const isExist = await isExistBranch(ROLLBACK_NAME);
+
+    console.log('---isExist---', isExist);
 
     // console.log('-isExist-', isExist);
     //  await git.checkout(['-b', 'rollback_dev1', 'origin/main']);
