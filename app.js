@@ -36,10 +36,10 @@ const actionCommitFlow = async () => {
 
         if (isExist) {
             console.log('---1---')
-            //await git.push();
+            await git.push();
         } else {
             console.log('---2---')
-            //await git.push('origin', current);
+            await git.push('origin', current);
         }
     } catch (err) {
         console.log('提交流程报错:', err);
