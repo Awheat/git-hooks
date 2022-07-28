@@ -40,13 +40,13 @@ const actionCommitFlow = async () => {
         // await git.add("./*");
         // await git.pull();
 
-        // if (isExist) {
-        //     console.log('---1---')
-        //     await git.push();
-        // } else {
-        //     console.log('---2---')
-        //     await git.push('origin', current);
-        // }
+        if (isExist) {
+            console.log('---1---')
+            //await git.push();
+        } else {
+            console.log('---2---')
+            //await git.push('origin', current);
+        }
     } catch (err) {
         console.log('提交流程报错:', err);
     }
