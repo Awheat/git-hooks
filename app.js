@@ -36,7 +36,7 @@ const actionCommitFlow = async () => {
 
         if (isExist) {
             console.log('---1---')
-            await git.push();
+            await git.push('origin', current);
         } else {
             console.log('---2---')
             await git.push('origin', current);
