@@ -27,25 +27,19 @@ const actionCommitFlow = async () => {
         const status = await git.status();
         const { current } = status;
         const isExist = await isExistBranch(`origin/${current}`);
-        console.log('---init---', current, isExist);
-        await git.add('./*');
-        await git.commit('feat: 自动提交流程');
-        await git.pull();
 
-        // await git.init();
-        // const status = await git.status();
-        // const isExist = await isExistBranch(`origin/${current}`);
-        // const { current } = status;
-        // console.log('---init---', status, isExist, current);
-        // await git.add("./*");
-        // await git.pull();
+        await git.add('./*');
+
+        await git.commit('feat: 自动提交流程');
+
+        await git.pull();
 
         if (isExist) {
             console.log('---1---')
             //await git.push();
         } else {
             console.log('---2---')
-            await git.push('origin', current);
+            //await git.push('origin', current);
         }
     } catch (err) {
         console.log('提交流程报错:', err);
