@@ -8,7 +8,10 @@ const simpleGit = require('simple-git');
 
 const git = simpleGit('./');
 
-const ROLLBACK_NAME = 'origin/rollback_dev';
+const ROLLBACK_BRANCH = {
+    local: 'rollback_dev',
+    remote: 'origin/rollback_dev'
+};
 
 
 /** @desc 获取远程是否存在某个分支 */
@@ -49,16 +52,16 @@ const actionInit = async () => {
         // 提交流程
         await actionCommitFlow();
 
-        const isExist = await isExistBranch(ROLLBACK_NAME);
+        const isExist = await isExistBranch(ROLLBACK_BRANCH.remote);
 
         console.log('---isExist---', isExist);
 
         if (isExist) {
             // 如果存在，切换到对应的分支
-            await git.checkout(ROLLBACK_NAME);
+            await git.checkout(ROLLBACK_BRANCH.local);
         } else {
             // 如果不存在，切换的同时新建分支从origin/master
-            await git.checkout(['-b', ROLLBACK_NAME, 'origin/main']);
+            await git.checkout(['-b', ROLLBACK_BRANCH.local, 'origin/main']);
         }
     } catch (err) {
         console.log('err:', err);
