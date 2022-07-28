@@ -45,39 +45,24 @@ const actionCommitFlow = async () => {
 }
 
 const actionInit = async () => {
-    // 提交流程
-    await actionCommitFlow();
+    try {
+        // 提交流程
+        await actionCommitFlow();
 
-    const isExist = await isExistBranch(ROLLBACK_NAME);
+        const isExist = await isExistBranch(ROLLBACK_NAME);
 
-    console.log('---isExist---', isExist);
+        console.log('---isExist---', isExist);
 
-    // console.log('-isExist-', isExist);
-    //  await git.checkout(['-b', 'rollback_dev1', 'origin/main']);
-    // if (isExist) {
-    // 1.git checkout branch_name
-    // 2.合并master代码到rollback分支
-    // } else {
-    // 1.git checkout -b branch_name
-    // }
-
-    // const { files, current } = await git.status();
-
-    // try {
-    //     if (files.length) {
-    //         await git.add('./*');
-
-    //         await git.commit(`feat: 分支${current}修改提交`);
-
-    //         await git.pull('origin', current);
-
-    //         await git.push('origin', current);
-    //         console.log('---log1---')
-    //         await git.checkout(['-b', 'rollback_dev1', 'origin/main']);
-    //     }
-    // } catch (err) {
-    //     console.log('err:', err);
-    // }
+        if (isExist) {
+            // 如果存在，切换到对应的分支
+            await git.checkout(ROLLBACK_NAME);
+        } else {
+            // 如果不存在，切换的同时新建分支从origin/master
+            await git.checkout(['-b', ROLLBACK_NAME, 'origin/main']);
+        }
+    } catch (err) {
+        console.log('err:', err);
+    }
 }
 
 actionInit();
