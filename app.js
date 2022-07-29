@@ -67,6 +67,8 @@ const actionInit = async () => {
         await git.mergeFromTo('origin/main', ROLLBACK_BRANCH.local);
 
         console.log('===> merge success!');
+
+        await actionCommitFlow();
     } catch (err) {
         console.log('err:', err);
     }
