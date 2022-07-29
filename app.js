@@ -69,6 +69,8 @@ const actionInit = async () => {
         console.log('===> merge success!');
 
         await actionCommitFlow();
+
+        console.log('===> commit success!');
     } catch (err) {
         console.log('err:', err);
     }
