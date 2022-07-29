@@ -9,8 +9,8 @@ const simpleGit = require('simple-git');
 const git = simpleGit('./');
 
 const ROLLBACK_BRANCH = {
-    local: 'rollback_dev3',
-    remote: 'origin/rollback_dev3'
+    local: 'rollback_dev2',
+    remote: 'origin/rollback_dev2'
 };
 
 
@@ -64,7 +64,7 @@ const actionInit = async () => {
             await git.checkout(['-b', ROLLBACK_BRANCH.local, 'origin/main']);
         }
 
-        await git.mergeFromTo('origin/rollback_dev2', ROLLBACK_BRANCH.local);
+        await git.mergeFromTo('origin/rollback_dev3', ROLLBACK_BRANCH.local);
 
         console.log('===> merge success!');
 
