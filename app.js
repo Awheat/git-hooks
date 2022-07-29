@@ -9,8 +9,8 @@ const simpleGit = require('simple-git');
 const git = simpleGit('./');
 
 const ROLLBACK_BRANCH = {
-    local: 'rollback_dev',
-    remote: 'origin/rollback_dev'
+    local: 'rollback_dev2',
+    remote: 'origin/rollback_dev2'
 };
 
 
